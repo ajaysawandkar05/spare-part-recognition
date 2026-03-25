@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+venv/
+.env
+node_modules/
+*.npz
+data/hwl_images/
+data/hwl_multi_images/
+photos_query/
+*.xlsx
