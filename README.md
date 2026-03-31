@@ -71,26 +71,29 @@ cd Spare_Part_Recognition
 
 ⚠️ Dataset is NOT included.
 
-Add images manually:
+Add Material  images manually & Material Excel file which contains all details of material like (material_id,storage_type,storage_bin):
 
 ```
 data/hwl_images/
     <material_id>/
         image_1.png
         image_2.png
+
+data/HWL Materials.xlsx
 ```
 
 Example:
 
 ```
 data/hwl_images/59-1014230-00867/image_1.png
+data/HWL Materials.xlsx
 ```
 
 ❗ Without images → system will NOT work
 
 ---
 
-### 3. Generate Descriptions
+### 3. Generate Descriptions and Dataset
 
 ```bash
 python scripts/generate_descriptions.py
@@ -100,6 +103,7 @@ Creates:
 
 ```
 data/hwl_descriptions.json
+data/hwl_dataset.json
 ```
 
 Used by:
@@ -142,7 +146,7 @@ npm run dev
 
 ### 7. Open App
 
-- Frontend → http://localhost:5173  
+- Frontend → http://localhost:5174  
 - Backend → http://localhost:8000  
 - API Docs → http://localhost:8000/docs  
 
@@ -233,16 +237,12 @@ Spare_Part_Recognition/
 │   ├── vite.config.js
 │   └── .env.example
 ├── scripts/
-│   ├── generate_descriptions.py
-│   ├── extract_xlsx.py (optional)
-│   └── evaluate.py
+│   ├── generate_dataset.py
 ├── data/
 │   ├── hwl_images/
-│   ├── hwl_multi_images/
 │   ├── hwl_dataset.json
 │   ├── hwl_descriptions.json
 │   └── hwl_clip_index.npz
-├── photos_query/
 ├── docker-compose.yml
 └── README.md
 ```
@@ -251,11 +251,10 @@ Spare_Part_Recognition/
 
 ## ⚠️ Important Notes
 
-- Dataset images are NOT included
-- Must manually add images
+- Dataset images and excel file are NOT included
+- Must manually add images and excel file
 - Descriptions required before running
 - Index builds automatically
-- No rotation augmentation (for accuracy)
 
 ---
 
@@ -264,7 +263,7 @@ Spare_Part_Recognition/
 - ✅ Added DINOv2 (fine-grained vision)
 - ✅ Hybrid scoring (DINOv2 + CLIP)
 - ✅ Max pooling (better than averaging)
-- ✅ Safer augmentations (no rotation)
+- ✅ Safer augmentations 
 - ✅ Confidence detection
 - ✅ Cleaner ranking (no sigmoid)
 
@@ -282,7 +281,7 @@ Spare_Part_Recognition/
 
 ## 👨‍💻 Author
 
-Ajay  
+Ajay Sawandkar
 Computer Engineering Student  
 
 ---
